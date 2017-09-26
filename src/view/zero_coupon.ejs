@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/demo.css">
+
+</head>
+<body>
+
+<!--顶部导航-->
+
+<%- include('../component/basic/topNav.ejs',{
+"thisrighthref":"jfSwitch.goBack()",
+"navtitle":"我的优惠券",
+"thislefthref":"#",
+"thisimgsrc":" "
+})%>
+    <!--顶部菜单栏-->
+
+    <%- include('../component/coupon/zero_coupon/coupon_label.ejs')%>
+
+    <!--中间内容-->
+
+    <%- include('../component/coupon/zero_coupon/center_content.ejs')%>
+
+</body>
+</html>

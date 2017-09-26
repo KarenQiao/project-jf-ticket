@@ -16,9 +16,16 @@ function devJs() {
 
     //主要依赖模块
 
-    gulp.src(['src/js/*.js','src/component/**/*.js'])
+    gulp.src('src/component/**/*.js')
 
         .pipe(concat('jf_tickets.js'))
+
+        .pipe(gulp.dest('build/js'))
+
+        .pipe(connect.reload());
+
+
+    gulp.src(['src/js/*.js']) //最基本的脚本文件
 
         .pipe(gulp.dest('build/js'))
 

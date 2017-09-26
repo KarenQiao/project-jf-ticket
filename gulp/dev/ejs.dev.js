@@ -16,7 +16,7 @@ var bom = require('gulp-bom');//解决UTF-8文件是采用无BOM
 
 function devEjs() {
 
-    gulp.src('src/view/*/*.{ejs,html}')
+    gulp.src('src/view/**/*.{ejs,html}')
 
         .pipe(ejs())
 
@@ -27,9 +27,17 @@ function devEjs() {
 
                 var addHtml = "";
 
-                addHtml += "<link rel='stylesheet'  href='../../css/jf_tickets.css'/>\n";//第二版开发样式
+                addHtml += "<meta name='viewport' content='width=device-width,initial-scale=1,user-scalable=0,minimum-scale=1, maximum-scale=1'>\n";
 
-                $('head').prepend(addHtml);
+                addHtml += "<meta name='apple-mobile-web-app-capable' content='yes' />\n";
+
+                addHtml += "<meta name='apple-mobile-web-app-status-bar-style' content='black' />\n";
+
+                addHtml += "<meta name='format-detection' content='telephone=no, email=no' />\n";
+
+                addHtml += "<link rel='stylesheet'  href='../css/jf_tickets.css'/>\n";//第二版开发样式
+
+                $('head').append(addHtml);
 
             },
 
@@ -43,41 +51,39 @@ function devEjs() {
         //顺序增加脚本文件
         .pipe(cheerio({
 
-            run: function ($) {
+            run:function($){
+                var addJsMain = '\n<script src="../js/jf_tickets.js"></script>\n';//主要的脚本文件
 
-                var addJSHtml = '';//保存引用的业务脚本
+                var addJsHtml="";//保存用的业务脚本
 
-                var addJsRun = "<script>\n";//运行的脚本
+                var addJsRun="<script>\n";//运行的脚本
 
-                var addJsHtmlHead = "<script src='";
+                var addJsHtmlHead="<script src='";
 
                 var addJSHtmlBottom = "'></script>\n";
 
-                $('script').each(function (index, ele) {
+                $('script').each(function(index,ele){
 
-                    if ($(this).attr('src')) {
+                    if($(this).attr('src')){
 
-                        var thisAttr = $(this).attr('src');
+                        addJsHtml+=addJsHtmlHead+$(this).attr('src')+addJSHtmlBottom;
 
-                        addJSHtml += addJsHtmlHead + thisAttr + addJSHtmlBottom;
-
-                    }
-
-                    else {
-
+                    }else {
                         addJsRun += $(this).html() + '\n';
-
                     }
 
-                });
+                })
 
                 addJsRun += "\n</script>\n";
 
                 $('script').remove();
 
-                $('body').append(addJSHtml);
+                $('body').append(addJsMain);
+
+                $('body').append(addJsHtml);
 
                 $('body').append(addJsRun);
+
 
             },
             parserOptions: {

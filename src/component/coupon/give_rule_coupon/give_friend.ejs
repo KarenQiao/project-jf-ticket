@@ -1,0 +1,57 @@
+
+
+<div class="zfb_direct_recharge">
+    <div class="welfare_list box_shadow">
+        <!--收款人账号-->
+        <label class="weui_cell zfb_cell">
+            <div class="weui_cell_hd"><label class="weui_label">对方账号</label></div>
+            <div class="weui_cell_bd">
+                <input class="weui_input" type="text" placeholder="13856987755" id="account_input">
+            </div>
+            <a class="coupon_people" href="give_friend_history.html">
+                <img src="../../../images/payee%20in_wage-transfer.png"/>
+            </a>
+
+        </label>
+        <!--收款人姓名-->
+        <label class="weui_cell zfb_cell">
+            <div class="weui_cell_hd"><label class="weui_label">对方姓名</label></div>
+            <div class="weui_cell_bd">
+                <input class="weui_input" type="text" placeholder="王小丫">
+            </div>
+            <div class="error_text2"></div>
+        </label>
+    </div>
+
+    <div class="coupon_hint">优惠券将实时转入对方账户，无法撤销</div>
+
+    <!--下一步-->
+    <div class="give_coupon_but">
+
+        <a class="coupon_but" >确认赠送</a>
+
+    </div>
+</div>
+
+<script>
+
+    /*弹框*/
+    document.getElementsByClassName('give_coupon_but')[0].addEventListener('click',function(){
+
+        jfShowTips.dialogShow({
+            "mainText": "赠送朋友",
+            "minText": "账户手机号含有多个子账户，请通过账户邮箱转赠",
+            "noCheck": false,
+            "noCancel": true,
+            "checkBtnText":"确定",
+            "checkFn": function () {
+                jfShowTips.dialogRemove()
+
+            }
+        });
+
+    },false)
+
+
+</script>
+

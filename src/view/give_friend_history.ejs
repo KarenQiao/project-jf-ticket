@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择接收账户</title>
+</head>
+<body>
+
+<!--顶部导航-->
+
+<%- include('../component/basic/topNav.ejs',{
+"thisrighthref":"jfSwitch.goBack()",
+"navtitle":"选择接收账户",
+"thislefthref":"#",
+"thisimgsrc":" "
+})%>
+
+<!--历史转账记录-->
+
+<%- include('../component/coupon/give_rule_coupon/give_coupon_history.ejs')%>
+
+
+</body>
+</html>

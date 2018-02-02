@@ -474,6 +474,7 @@
             <label>
                 <input class="aui-radio checkallbox" type="checkbox" name="radio">
                 <span>全选</span>
+                <span onclick="javascript:window.open('http//:give_rule_coupon.html')">优惠券赠送规则</span>
             </label>
 
             <div class="delete_btn">删除</div>
@@ -482,6 +483,29 @@
     </div>
 
 </div>
+
+<script>
+    document.getElementById('preferentialTransfer').addEventListener('click',couponTabChange.showCheckBox,false)
+
+    //全选
+    document.getElementsByClassName('checkallbox')[0].addEventListener('click',couponTabChange.checkALL,false);
+
+
+    //单选（反选）
+    couponTabChange.singeCheck('couponcheck');
+
+    couponTabChange.singeCheck('coupon_box')
+
+
+    //删除按钮
+    document.getElementsByClassName('delete_btn')[0].addEventListener("click",couponTabChange.deleteMessageList,false)
+
+
+
+    //删除状态a标签无法点击
+
+
+</script>
 
 
 

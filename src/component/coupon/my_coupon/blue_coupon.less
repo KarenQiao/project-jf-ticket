@@ -21,19 +21,35 @@
     .no_used{
       position: relative;
     }
+
+    #preferentialTransfer{
+      font-size: 16px;
+      text-align: right;
+      padding: 12px 12px 0 0;
+      color: #fc6329;
+      &:active{
+        opacity: .6;
+      }
+
+    }
+
+
     /*优惠券*/
     .coupon_content{
       position: relative;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: transform 0.3s linear, -webkit-transform 0.3s linear;
+
+      transform: translate3d(0, 0, 0);
       label.couponcheck{
         width: 100%;
         opacity: 1;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        &.show{
+        &.coupon_show{
           .coupon_plate{
               width: 90%;
 
@@ -421,7 +437,7 @@
       left: 0;
       border-top: solid 1px #DDDDDD;
       z-index: 1000;
-      transform: translate3d(0,0,0);
+      transform: translate3d(0,100%,0);
       transition: transform 0.2s linear;
 
       label{
@@ -431,6 +447,15 @@
         input{
           margin-left: 10px;
           margin-right: 2px;
+        }
+        span{
+          &:last-child{
+            padding-left: 10px;
+            color: #fc6329;
+            &:active{
+              opacity: .6;
+            }
+          }
         }
       }
       .delete_btn{

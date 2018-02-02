@@ -30,7 +30,28 @@ var couponTabChange={
 
             var moveDis=-thisWindowWidth*thisIndex;
 
+            var allMessageList = document.getElementsByClassName('couponcheck');
+
+            var allcheckBox = document.getElementsByClassName('coupon_box');
+
             allTabEle.style.transform='translate3d('+moveDis+'px,0,0)';
+
+            document.getElementsByClassName('tab_content')[0].style.transform="translate3d(0,100%,0)";
+
+            document.getElementById('preferentialTransfer').innerHTML = '转赠优惠券';
+
+            for (var i = 0; i < allcheckBox.length; i++) {
+
+                allMessageList[i].className = "couponcheck";
+
+            }
+
+            var allCheckBox = document.getElementsByClassName('aui-radio');
+
+            for (var j = 0; j < allCheckBox.length; j++) {
+
+                allCheckBox[j].checked = false
+            }
 
         }
         function getRightIndex(){
@@ -54,7 +75,6 @@ var couponTabChange={
         var allMessageList=document.getElementsByClassName('couponcheck');
 
         var allcheckBox=document.getElementsByClassName('coupon_box');
-        console.log([this])
 
         if(this.innerHTML.indexOf('转赠优惠券')>-1){
 
@@ -66,10 +86,10 @@ var couponTabChange={
 
             document.getElementsByClassName('tab_content')[0].style.transform="translate3d(0,0,0)";
 
-            this.innerHTML="取消转赠优惠券";
+            this.innerHTML="取消转赠";
 
 
-        }else if(this.innerHTML.indexOf('取消转赠优惠券')>-1) {
+        }else if(this.innerHTML.indexOf('取消转赠')>-1) {
 
 
 
@@ -93,7 +113,7 @@ var couponTabChange={
         }
     },
 
-
+    //去选
     checkALL:function (){ //全选
 
         var allsingleBox=document.getElementsByClassName('singlecheck');
@@ -178,97 +198,11 @@ var couponTabChange={
 
     },
 
-    deleteMessageList:function(){//删除消息通知
-
-        var allsingleBox=document.getElementsByClassName('singlecheck');
-
-        var thisbalanceBox=couponTabChange.judegNocheck();
-
-        if(!thisbalanceBox){//如果一个都没选择
-
-            jfShowTips.toastShow({"text":"请选择需要删除的消息"})
-
-        }else {
-
-            for(var i=0;i<allsingleBox.length;i++){
-
-                if(allsingleBox[i].checked){
-                    var thisSelectBox=allsingleBox[i];
-
-                    getRightParent(thisSelectBox);
-
-                }
-            }
-
-        };
-
-
-        //选中box正确的父元素
-        function getRightParent(checkEle){
-
-            var allsingleBox=checkEle;
-
-            for(var i=0;i<100;i++){
-
-                var thisParentEle=allsingleBox.parentNode;
-
-                if(thisParentEle.className.indexOf('coupon_content')>-1){
-
-                    thisParentEle.style.transform="translate3d(-100%,0,0)";
-
-                    thisParentEle.style.webkitTransform="translate3d(-100%,0,0)";
-
-                    setTimeout(function(){
-
-                        if(thisParentEle.parentNode){
-
-                            thisParentEle.parentNode.removeChild(thisParentEle);//删除当前元素
-
-                        }
-
-                    },300);
-
-                    break
-
-                }else {
-
-                    allsingleBox=allsingleBox.parentNode;
-                }
-
-            }
-
-        }
-
-    },
-
-    cancelMessageTips:function(clickEle,deleteEle){//取消消息提示数字(c)
-
-        var thisClickEle=document.getElementsByClassName(clickEle)[0];
-
-        var thishref=thisClickEle.getAttribute('data-href');
-
-        if(deleteEle){
-            var thisMessageTips=thisClickEle.getElementsByClassName(deleteEle)[0];
-
-            if(thisMessageTips.parentNode){
-
-                thisMessageTips.parentNode.removeChild(thisMessageTips);//删除该元素
-            }
-        }
-
-        setTimeout(function(){
-
-            thisClickEle.href=thisClickEle.getAttribute('data-href');
-
-            window.location.href=thishref;
-
-        },100)
-    },
-
+    //编辑状态下无法点击链接
     noclick:function(){
 
         //删除状态a标签无法点击
-        var thisHrefEle=document.getElementsByClassName('coupon_content');
+        var thisHrefEle=document.getElementsByClassName('coupon_plate');
 
         for(var i=0;i<thisHrefEle.length;i++){
 
@@ -276,7 +210,7 @@ var couponTabChange={
 
                 var evt=e||window.event;
 
-                if(document.getElementById('preferentialTransfer').innerHTML.indexOf('取消转赠优惠券')>-1){
+                if(document.getElementById('preferentialTransfer').innerHTML.indexOf('取消转赠')>-1){
 
                     evt.preventDefault();
                 }
@@ -285,6 +219,26 @@ var couponTabChange={
 
         }
 
+    },
+
+    //
+
+    ruleHref:function (thisHref) {
+
+        document.getElementsByClassName('rule_block')[0].addEventListener('click',function (e) {
+
+            var evt=e||window.event;
+
+            evt.preventDefault();
+
+            evt.stopPropagation();
+
+            window.location.href = thisHref;
+
+        },false)
     }
+
+
+
 
 }

@@ -56,3 +56,64 @@ var browser = {
     }()
     //browser.supplier.wechat
 };
+
+var windowBanEvent = {
+
+    bundling: function () {
+
+        var _self = this;
+        //$(window).bind('click touchstart touchmove touchend ', _self.Canceling);//绑定禁止事件
+
+        var allEvent = ['click', 'touchstart', 'touchmove', 'touchend'];
+
+        for (var i = 0; i < allEvent.length; i++) {
+
+            document.body.addEventListener(allEvent[i], _self.Canceling, false);
+
+            addEventListener(allEvent[i], _self.Canceling, false)
+
+        }
+
+    },
+
+    unbundling: function () {
+
+        var _self = this;
+
+        var allEvent = ['click', 'touchstart', 'touchmove', 'touchend'];
+
+        for (var i = 0; i < allEvent.length; i++) {
+
+            document.body.removeEventListener(allEvent[i], _self.Canceling, false);
+
+            removeEventListener(allEvent[i], _self.Canceling, false)
+
+        }
+
+        //$(window).unbind('click touchstart touchmove touchend ', _self.Canceling);//解除绑定事件
+
+
+    },
+
+    Canceling: function (evt) {
+
+        var evt = evt || window.event; //阻止事件
+
+        if (evt.preventDefault) {
+
+            evt.preventDefault();
+
+            evt.stopPropagation();
+
+        }
+        else {
+
+            evt.returnValue = false;
+
+            evt.cancelBubble = true;
+
+        }
+
+    }
+
+};

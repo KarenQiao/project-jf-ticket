@@ -1,5 +1,17 @@
 
+/*loading的三种动画*/
+var loadInnerHtml={
 
+    'node':{
+
+        'loadingSuccess':'<div class="loading_box"><div class="success_animation"><div class="success_animation_circle"></div><div class="success_animation_cloud"></div><div class="success_animation_line2"></div><div class="success_animation_line3"></div><div class="success_animation_right"></div><div class="m-box"><div class="m-duigou"></div></div><div class="success_animation_text showtext"></div></div></div>',
+
+        'loading':'<div class="loading_box"><div class="jd_loading"><div class="loading_box jdshop_alignment_center"><div class="ball1"></div><div class="ball2"></div><div class="ball3"></div></div><div class="loading_animation_text showtext"></div></div></div>',
+
+        'loadingFail':'<div class="loading_box"><div class="fail_animation"><div class="fail_animation_circle"></div><div class="fail_animation_cloud"></div><div class="fail_animation_line2"></div><div class="fail_animation_line3"></div><div class="fail_animation_wrong"></div><div class="fail_animation_text showtext"></div></div></div>'
+
+    }
+};
 /*嘉福平台UI通用JS*/
 /*包括轻量级提示，loading,弹出框等等*/
 var jfShowTips = {
@@ -67,6 +79,7 @@ var jfShowTips = {
     },
 
 
+
     //loading方法
     //陈羽翔
     //2017.2.3
@@ -84,11 +97,11 @@ var jfShowTips = {
 
         var thisText = details.text || 'LOADING..';//初始值
 
-        var overtimeFn= details.overtimeFn || function () {
+   /*     var overtimeFn= details.overtimeFn || function () {
 
                 _this.toastShow({'text':'等待超时'})
 
-            };
+            };*/
 
         var thisInnerHtml='<div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div><i>'+thisText+'</i>';//html内容
 
@@ -106,7 +119,7 @@ var jfShowTips = {
 
             if(thisAddEle){
 
-                overtimeFn();
+                //overtimeFn();
 
                 _this.remove(thisAddEle);//删除该元素
 
@@ -127,6 +140,17 @@ var jfShowTips = {
         },10000);//30秒
 
 
+
+    },
+
+
+    addLoadingBg:function (thisId) {
+
+        var _this=this;
+
+        _this.removeBg();
+
+        return _this.addNode('div','',thisId,'tip_loading_bg');//增加节点
 
     },
 

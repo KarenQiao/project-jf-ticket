@@ -36,9 +36,14 @@ var couponTabChange={
 
             allTabEle.style.transform='translate3d('+moveDis+'px,0,0)';
 
-            document.getElementsByClassName('tab_content')[0].style.transform="translate3d(0,100%,0)";
+                document.getElementsByClassName('tab_content')[0].style.transform="translate3d(0,100%,0)";
 
-            document.getElementById('preferentialTransfer').innerHTML = '转赠优惠券';
+            if(document.getElementById('preferentialTransfer')){
+
+                document.getElementById('preferentialTransfer').innerHTML = '转赠优惠券';
+            }
+
+
 
             for (var i = 0; i < allcheckBox.length; i++) {
 
@@ -222,7 +227,6 @@ var couponTabChange={
     },
 
     //
-
     ruleHref:function (thisHref) {
 
         document.getElementsByClassName('rule_block')[0].addEventListener('click',function (e) {

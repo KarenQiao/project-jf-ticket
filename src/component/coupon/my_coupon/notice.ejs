@@ -1,9 +1,17 @@
-
 <!--------提示语-------->
 <div>
     <div class="coupon_tips">
         <span><img src="../images/warning.png"></span>
-        <span>获取使用：1.【福利集市】中福利余额转成相机即可获得等值京东购物立减券；2.在【京东】商城中购物结算时,选券抵现。</span>
+        <span>获取使用：1.【福利集市】中福利余额转成相机即可获得等值京东购物立减券。<span onclick="jfShowTips.dialogShow({
+         'mainText':'优惠券使用规则',
+         'minText':'（1）使用范围：全平台使用。在嘉福平台购物结算时，选券抵现。<br/>（2）优惠券不能兑换现金。<br/>（3）优惠券可叠加使用。<br/>（4）优惠券金额大于订单应付金额时，差额不予退回。<br/>（5）优惠券应在券面标明的有效期内使用，过期作废。<br/>（6）如使用优惠券的订单发生售后退货，该订单全部退货，则优惠券退还；该订单部分退货，则优惠券不予退还。<br/>（7）如您的订单使用了优惠券，取消整个订单时，优惠券予以退还；其他情况，优惠券不予退还。',
+         'noCancel':true,
+        'checkBtnText':'我知道了',
+        'checkFn':function() {
+         jfShowTips.dialogRemove()
+       }
+        }
+        )">点击查看使用规则>></span></span>
     </div>
     <div class="top_label_pich tips_pich"></div>
 

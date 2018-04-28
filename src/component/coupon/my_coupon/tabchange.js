@@ -89,7 +89,9 @@ var couponTabChange={
 
             }
 
-            document.getElementsByClassName('tab_content')[0].style.transform="translate3d(0,0,0)";
+            document.getElementsByClassName('tab_content')[0].style.cssText = "transform:translateY(0);transform:translate3d(0,0,0)";
+
+            //document.getElementsByClassName('tab_content')[0].style.transform="translate3d(0,0,0)";
 
             this.innerHTML="取消转赠";
 
@@ -113,7 +115,9 @@ var couponTabChange={
                 allCheckBox[j].checked=false
             }
 
-            document.getElementsByClassName('tab_content')[0].style.transform="translate3d(0,100%,0)";
+            document.getElementsByClassName('tab_content')[0].style.cssText = "transform:translateY(100%);transform:translate3d(0,100%,0)";
+
+            //document.getElementsByClassName('tab_content')[0].style.transform="translate3d(0,100%,0)";
 
         }
     },

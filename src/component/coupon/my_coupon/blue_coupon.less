@@ -1,34 +1,35 @@
 /**********优惠券*********/
 
-.all_coupon{
+.all_coupon {
   width: 100%;
   overflow: hidden;
   //margin-top: 30px;
   position: relative;
-  .all_coupon_tabs{
+  .all_coupon_tabs {
     width: 300%;
+    height: 92%;
     height: calc(~"100vh - 90px");
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     transition: transform 0.25s ease-in-out;
-    >div{
+    > div {
       width: 100%;
       height: 100%;
       overflow-y: scroll;
       -webkit-overflow-scrolling: touch;
       flex: 1;
     }
-    .no_used{
+    .no_used {
       position: relative;
     }
 
-    #preferentialTransfer{
+    #preferentialTransfer {
       font-size: 14px;
       text-align: right;
       padding: 10px 15px 10px 0;
       color: #10a6e2;
-      &:active{
+      &:active {
         opacity: .6;
       }
       @media screen and(max-width: 360px) {
@@ -37,66 +38,65 @@
       }
     }
 
-
     /*优惠券*/
-    .coupon_content{
+    .coupon_content {
       position: relative;
       display: flex;
       justify-content: space-between;
       align-items: center;
       //transition: transform 0.3s linear;
       //transform: translate3d(0, 0, 0);
-      label.couponcheck{
+      label.couponcheck {
         width: 100%;
         opacity: 1;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        &.coupon_show{
-          .coupon_plate{
-              width: 89%;
-            }
+        &.coupon_show {
+          .coupon_plate {
+            width: 89%;
+          }
 
           .time_plate {
 
-            p{
+            p {
 
-                width: 80%;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
+              width: 80%;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
             }
           }
-            .coupon_box{
-              opacity: 1;
-              width: 8%;
+          .coupon_box {
+            opacity: 1;
+            width: 8%;
 
-              @media screen and(max-width: 330px) {
+            @media screen and(max-width: 330px) {
 
-                width: 9%;
-
-              }
+              width: 9%;
 
             }
 
-          .all_shopping{
-            p{
+          }
+
+          .all_shopping {
+            p {
               width: 55%;
             }
 
           }
 
         }
-       }
-      .coupon_box{
+      }
+      .coupon_box {
         width: 0;
         opacity: 0;
         z-index: -1;
         transition: all .05s linear;
       }
-      &:last-child{
+      &:last-child {
         margin-bottom: 45px;
       }
     }
@@ -109,18 +109,18 @@
       overflow: hidden;
       transition: width .1s linear;
 
-      &:active{
+      &:active {
         opacity: 0.5;
       }
 
-      &:after{
+      &:after {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         width: 8px;
         height: 100%;
-        background: url("../images/gray_bg.jpg")no-repeat left center;
+        background: url("../images/gray_bg.jpg") no-repeat left center;
         background-size: 50%;
         z-index: 10;
       }
@@ -133,29 +133,29 @@
           width: 100%;
           text-align: center;
 
-            >span {
-              color: #ffffff;
+          > span {
+            color: #ffffff;
+            &:nth-child(1) {
+              font-size: 24px;
+              margin-top: 3px;
+            }
+            &:nth-child(2) {
+              font-size: 30px;
+              display: inline-block;
+              margin-left: 3px;
+            }
+            @media screen and(max-width: 320px) {
               &:nth-child(1) {
-                font-size: 24px;
-                margin-top: 3px;
+                font-size: 18px;
               }
+
               &:nth-child(2) {
-                font-size: 30px;
-                display: inline-block;
-                margin-left:3px;
-              }
-              @media screen and(max-width: 320px) {
-                &:nth-child(1) {
-                  font-size: 18px;
-                }
-                &:nth-child(2) {
-                  font-size: 24px;
-                }
+                font-size: 24px;
               }
             }
+          }
 
-
-          >p{
+          > p {
             color: #ffffff;
             font-size: 16px;
             @media screen and(max-width: 320px) {
@@ -200,10 +200,10 @@
             width: 60%;
             color: #4a4a4a;
             padding-left: 10px;
-            overflow:hidden;
-            text-overflow:ellipsis;
+            overflow: hidden;
+            text-overflow: ellipsis;
             display: -webkit-box;
-            -webkit-line-clamp:2;
+            -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             margin: 2px 0;
             line-height: 1.3;
@@ -279,18 +279,18 @@
           }
         }
       }
-      .gift_tips{
+      .gift_tips {
         position: absolute;
-        top:10px;
+        top: 10px;
         right: 2px;
         color: #fff;
         transform: rotate(45deg);
         font-size: 12px;
 
       }
-      &.donation{
+      &.donation {
         position: relative;
-        &:before{
+        &:before {
           content: "";
           position: absolute;
           right: -5px;
@@ -306,22 +306,22 @@
       }
     }
 
-    .coupon_plate.blue{
+    .coupon_plate.blue {
       position: relative;
-      &.donation{
-        &:before{
+      &.donation {
+        &:before {
           border-color: transparent transparent transparent #687ad4;
         }
       }
 
-      &:after{
+      &:after {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         width: 8px;
         height: 100%;
-        background: url("../images/blue_bg.jpg")no-repeat left center;
+        background: url("../images/blue_bg.jpg") no-repeat left center;
         background-size: 50%;
         z-index: 10;
       }
@@ -330,67 +330,66 @@
 
         background: linear-gradient(to bottom right, #6392d0, #6879d4); /* 标准的语法 */
       }
-      .voucher_label{
+      .voucher_label {
         background-color: #687ad4;
       }
 
-      .plate_right .all_shopping button{
+      .plate_right .all_shopping button {
         border: 1px #687ad4 solid;
         color: #687ad4;
 
-        &:active{
-          background: #687ad4 ;
+        &:active {
+          background: #687ad4;
           color: #fff;
         }
       }
 
     }
 
-    .coupon_plate.orange{
+    .coupon_plate.orange {
       position: relative;
-      &.donation{
-        &:before{
+      &.donation {
+        &:before {
           border-color: transparent transparent transparent #ff6408;
         }
       }
 
-      &:after{
+      &:after {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         width: 8px;
         height: 100%;
-        background: url("../images/orange_bg.jpg")no-repeat left center;
+        background: url("../images/orange_bg.jpg") no-repeat left center;
         background-size: 50%;
         z-index: 10;
       }
 
       .plate_left {
 
-        background: linear-gradient(to bottom right, rgba(255,144,1,1), rgba(255,100,8,1)); /* 标准的语法 */
+        background: linear-gradient(to bottom right, rgba(255, 144, 1, 1), rgba(255, 100, 8, 1)); /* 标准的语法 */
       }
 
-      .voucher_label{
+      .voucher_label {
         background-color: #ff6408;
       }
 
-      .plate_right .all_shopping button{
+      .plate_right .all_shopping button {
         border: 1px #ff6408 solid;
         color: #ff6408;
 
-
-        &:active{
-          background: #ff6408 ;
+        &:active {
+          background: #ff6408;
           color: #fff;
         }
       }
 
     }
 
-    .coupon_plate.used{
+    .coupon_plate.used {
       position: relative;
-      &:before{
+      &:before {
         content: "";
         width: 75px;
         height: 75px;
@@ -407,8 +406,8 @@
       }
     }
 
-    .coupon_plate.used_gift{
-      &:before{
+    .coupon_plate.used_gift {
+      &:before {
         content: "";
         width: 75px;
         height: 75px;
@@ -420,10 +419,10 @@
       }
     }
 
-    .coupon_plate.dated{
+    .coupon_plate.dated {
       position: relative;
       opacity: 0.7;
-      &:before{
+      &:before {
         content: "";
         width: 75px;
         height: 75px;
@@ -441,12 +440,12 @@
     }
   }
   /*底部导航*/
-  .coupon_bottom_tab{
+  .coupon_bottom_tab {
     width: 100%;
-    .tab_bar{
+    .tab_bar {
       padding-bottom: 50px;
     }
-    .tab_content{
+    .tab_content {
       width: 100%;
       display: flex;
       align-items: center;
@@ -457,87 +456,126 @@
       left: 0;
       border-top: solid 1px #DDDDDD;
       z-index: 1000;
-      transform: translate3d(0,100%,0);
+      transform: translateY(100%);
+      transform: translate3d(0, 100%, 0);
       transition: transform 0.2s linear;
 
-      label{
+      label {
         flex: 2;
         background: white;
         line-height: 50px;
-        input{
+
+        input {
           margin-left: 10px;
           margin-right: 2px;
         }
-
-        .rule_img{
-          width: 20px;
-          height: 20px;
-          vertical-align: middle;
-          margin-left: 15px;
+        .choose{
+          @media screen and(max-width: 346px) {
+     font-size: 12px;
+          }
         }
-        span{
-          &:last-child{
-            padding-left: 10px;
+
+        .rule_img {
+          width: 18px;
+          height: 18px;
+          vertical-align: sub;
+          margin: 0 5px;
+          @media screen and(max-width: 346px) {
+            width: 14px;
+            height: 14px;
+            margin: 0 2px;
+          }
+        }
+          span.rule_block {
+            font-size: 14px;
             color: #10a6e2;
-            &:active{
-              opacity: .6;
+            @media screen and(max-width: 346px) {
+              font-size: 12px;
             }
+            &:last-child {
+              color: #10a6e2;
+              &:active {
+                opacity: .6;
+              }
+            }
+
+          }
+          .ticket_total {
+            line-height: 16px;
+            text-align: right;
+            width: 100px;
+            font-size: 14px;
+            display: inline-block;
+            vertical-align: middle;
+            @media screen and(max-width: 346px) {
+              width: 80px;
+              font-size: 12px;
+            }
+            p {
+              white-space: nowrap;
+              justify-content: center;
+              text-align: right;
+
+            }
+            span {
+              color: #10a6e2;
+            }
+
+          }
+        }
+        .delete_btn {
+          flex: .8;
+          background: -webkit-linear-gradient(left, rgba(16, 166, 226, 1), rgba(0, 136, 191, 1)); /* Safari 5.1 - 6 */
+          color: white;
+          line-height: 50px;
+          text-align: center;
+
+          &:active {
+            background: rgba(0, 136, 191, 1); /* Safari 5.1 - 6 */
           }
         }
       }
-      .delete_btn{
-        flex: 1;
-        background: -webkit-linear-gradient(left,rgba(16,166,226,1),rgba(0,136,191,1)); /* Safari 5.1 - 6 */
-        color: white;
-        line-height: 50px;
+    }
+    /*复选框*/
+    .aui-radio {
+      width: 1rem;
+      height: 1rem;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: .6rem;
+      font-size: .8rem;
+      margin: 0 10px;
+      padding: 0;
+      position: relative;
+      vertical-align: middle;
+      cursor: default;
+      user-select: none;
+      transition: background-color ease 0.1s;
+      &:before {
+        content: '';
+        width: .5rem;
+        height: .3rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -.25rem;
+        margin-top: -.25rem;
+        background: 0;
+        border: 1px solid #fff;
+        border-top: 0;
+        border-right: 0;
+        z-index: 2;
+        border-radius: 0;
+        transform: rotate(-45deg);
+      }
+      &:checked {
+        background-color: #03a9f4;
+        border: 1px solid #03a9f4;
         text-align: center;
-
-        &:active{
-          background:rgba(0,136,191,1); /* Safari 5.1 - 6 */
-        }
+        background-clip: padding-box;
       }
     }
   }
-  /*复选框*/
-  .aui-radio{
-    width: 1rem;
-    height: 1rem;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: .6rem;
-    font-size: .8rem;
-    margin:0 10px;
-    padding: 0;
-    position: relative;
-    vertical-align: middle;
-    cursor: default;
-    user-select: none;
-    transition: background-color ease 0.1s;
-    &:before{
-      content: '';
-      width: .5rem;
-      height: .3rem;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-left: -.25rem;
-      margin-top: -.25rem;
-      background: 0;
-      border: 1px solid #fff;
-      border-top: 0;
-      border-right: 0;
-      z-index: 2;
-      border-radius: 0;
-      transform: rotate(-45deg);
-    }
-    &:checked{
-      background-color: #03a9f4;
-      border: 1px solid #03a9f4;
-      text-align: center;
-      background-clip: padding-box;
-    }
-  }
-}
 
 
 
